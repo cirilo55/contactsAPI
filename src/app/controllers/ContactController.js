@@ -6,6 +6,7 @@ class ContactController {
   {
     const { orderBy } = req.query
     const contacts = await ContactsRepository.findAll(orderBy);
+
     res.json(contacts);
   }
   async show(req, res)
@@ -27,12 +28,7 @@ class ContactController {
     {
       return res.status(400).json({ error: 'name is required'});
     }
-    // const contactExist = await ContactsRepository.findByEmail(email);
 
-    // if(contactExist)
-    // {
-    //   return res.status(400).json({ error: 'This e-mail is already been taken'});
-    // }
     const contact = await ContactsRepository.create({
       name, email, phone, category_id
     })

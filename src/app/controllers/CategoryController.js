@@ -19,6 +19,8 @@ class CategoryController {
 
     res.json(category);
   }
+
+
 }
 
 module.exports = new CategoryController();
